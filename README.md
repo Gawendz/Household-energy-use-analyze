@@ -23,4 +23,16 @@ gdzie:
 - <code>min<sub>h′</sub>(…)</code> i <code>max<sub>h′</sub>(…)</code> to odpowiednio najniższa i najwyższa wartość tej metryki spośród wszystkich godzin.
 
 Wspólny wykres pozwala zobaczyć o której godzinie osiąga się szczyt danej miary, porównać kształty i rozkłady godzinowe różnych wielkości niezależnie od ich jednostek.
-![hourly_combined_normalized](https://github.com/user-attachments/assets/a2720477-d36e-43ba-ad53-0a4839567e13)
+![image](https://github.com/user-attachments/assets/c3140c43-6b97-4433-98cb-bd592ec97a12)
+
+
+Poniższy wykres grupuje dane według dni tygodnia (pon.–niedz.):
+
+* **kWh / kVARh** – suma dobowych energii czynnej i biernej  
+* **Sub 1-3 [Wh]** – łączna energia z trzech pod-liczników  
+* **V / A** – średnie dzienne napięcie oraz natężenie
+
+Wartości energii zostały przeliczone na Wh lub kWh, a napięcie i natężenie
+pokazane jako średnia arytmetyczna. Dzięki temu łatwo widać,
+który dzień tygodnia generuje najwyższe (lub najniższe) obciążenie.
+![image](https://github.com/user-attachments/assets/0d4f84d1-3a2c-49bd-b478-0f6af4fcc5b3)
