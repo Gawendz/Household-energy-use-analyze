@@ -9,16 +9,20 @@ Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
 
-Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali, każdą z nich znormalizowano metodą *min–max*:
+Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali,
+każdą z nich znormalizowano metodą *min–max*:
 
-```text
-normalized_value_h = (value_h - min_{h'} value_{h'}) 
-                     / (max_{h'} value_{h'} - min_{h'} value_{h'})
+<p align="center">
+  <code>
+    normalized_value<sub>h</sub> = 
+    (value<sub>h</sub> − min<sub>h′</sub>(value<sub>h′</sub>)) / (max<sub>h′</sub>(value<sub>h′</sub>) − min<sub>h′</sub>(value<sub>h′</sub>))
+  </code>
+</p>
 
-gdzie:
-- \(h\) to godzina dnia (0–23),
-- \(\text{value}_{h}\) to agregowana wartość danej metryki w godzinie \(h\),
-- min/max to odpowiednio najmniejsza i największa wartość tej metryki wśród wszystkich godzin.
+gdzie  
+- <code>h</code> to godzina dnia (0–23),  
+- <code>value<sub>h</sub></code> to agregowana wartość metryki w godzinie <code>h</code>,  
+- <code>min<sub>h′</sub>(…)</code> i <code>max<sub>h′</sub>(…)</code> to odpowiednio najmniejsza i największa wartość tej metryki spośród wszystkich godzin.
 
 Wspólny wykres pozwala zobaczyć o której godzinie osiąga się szczyt danej miary, porównać kształty i rozkłady godzinowe różnych wielkości niezależnie od ich jednostek.
 ![hourly_combined_normalized](https://github.com/user-attachments/assets/a2720477-d36e-43ba-ad53-0a4839567e13)
