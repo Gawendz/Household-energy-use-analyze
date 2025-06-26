@@ -37,19 +37,20 @@ pokazane jako średnia arytmetyczna. Dzięki temu łatwo widać,
 który dzień tygodnia generuje najwyższe (lub najniższe) obciążenie.
 ![image](https://github.com/user-attachments/assets/0d4f84d1-3a2c-49bd-b478-0f6af4fcc5b3)
 
+#### Dane wejściowe modelu LR dla zużycia aktywnego
+* **Trend czasowy** – kolejny numer dnia (`t_idx`), łapie długofalowe zmiany.  
+* **Sezon roczny** – `sin(dzień-roku)` i `cos(dzień-roku)` rozróżniają lato / zimę.  
+* **Dzień tygodnia** – siedem flag (pn…nd) wskazujących konkretny dzień.
 
-| Rola w modelu | Kolumna/cecha | Jak powstała | Typ | Liczba wariantów |
-|---------------|---------------|--------------|-----|------------------|
-| **Y** – etykieta | `kwh` | suma `Global_active_power` z całego dnia ÷ 60 → [daily kWh] | Double | — |
-| **Trend** | `t_idx` | rosnący indeks dnia (`monotonically_increasing_id`) | Double | unikat dla każdego dnia |
-| **Sezon roczny** | `sin_doy` | `sin(2π · DOY / 365)` | Double | ciągłe |
-| | `cos_doy` | `cos(2π · DOY / 365)` | Double | — |
-| **Dzień tygodnia (One-Hot)** | `dow_0 … dow_6` | `dow = dayofweek(date)-1` → 7 kolumn 0/1 | Double | 7 |
+Razem 10 bardzo cech.
 
-* **Próbka**: grudzień 2006 → nov 2010, 1 276 dni  
-* **Wektor cech**: 1 (trend) + 2 (sezon) + 7 (day-of-week) = 10 wymiarów  
-* **Train / test**: losowo 80 % / 20 %  
-* **Model**: `LinearRegression` (Spark MLlib, `maxIter=50`, `regParam=0`)
+**Parametry treningu**
+
+| element | wartość |
+|---------|---------|
+| Próbka  | grudzień 2006 → listopad 2010 (1 276 dni) |
+| Podział | 80 % train / 20 % test |
+| Model   | `LinearRegression` – Spark MLlib, `maxIter=50`, `regParam=0` |
 
 \
 Efekt:
@@ -58,3 +59,6 @@ Efekt:
 |---------|---------|
 | RMSE | **7.35 kWh** |
 | R²   | **0.409** |
+![image](https://github.com/user-attachments/assets/73da5c50-e026-45dc-a013-593b352df5a4)
+
+
