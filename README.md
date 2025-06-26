@@ -9,14 +9,12 @@ Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
 
-Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali,  
-każdą z nich znormalizowano metodą *min–max*:
+Aby porównać różne metryki na jednej skali, każdą z nich znormalizowano metodą min–max:
 
 <p align="center">
-  <code>
-    normalized_value<sub>h</sub> = (value<sub>h</sub> &minus; min<sub>h′</sub>(value<sub>h′</sub>))<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / (max<sub>h′</sub>(value<sub>h′</sub>) &minus; min<sub>h′</sub>(value<sub>h′</sub>))
-  </code>
+  <img
+    src="https://latex.codecogs.com/png.latex?normalized\_value_h%20%3D%20\frac{value_h%20-%20\min_{h'}(value_{h'})}{\max_{h'}(value_{h'})%20-%20\min_{h'}(value_{h'})}"
+    alt="normalized formula" />
 </p>
 
 gdzie:  
