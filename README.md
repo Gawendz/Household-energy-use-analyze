@@ -5,10 +5,10 @@ sub_metering_2: podlicznik energii nr 2 (w watogodzinach energii czynnej), dla:
 9. sub_metering_3: podlicznik energii nr 3 (w watogodzinach energii czynnej), dla:
 -Podgrzewacz wody i klimatyzator.
 
-Wykresy trendów, średnich i wartości szczytowych:
+#### Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
-
+#### Znormalizowane rozkłady godzinowe metryk
 Aby porównać różne metryki na jednej skali, każdą z nich znormalizowano metodą min–max:
 
 <p align="center">
@@ -26,6 +26,7 @@ Wspólny wykres pozwala zobaczyć o której godzinie osiąga się szczyt danej m
 ![image](https://github.com/user-attachments/assets/c3140c43-6b97-4433-98cb-bd592ec97a12)
 
 
+#### Wykresy zużyć tygodniowych
 Poniższy wykres grupuje dane według dni tygodnia (pon.–niedz.):
 
 * **kWh / kVARh** – suma dobowych energii czynnej i biernej  
@@ -37,7 +38,11 @@ pokazane jako średnia arytmetyczna. Dzięki temu łatwo widać,
 który dzień tygodnia generuje najwyższe (lub najniższe) obciążenie.
 ![image](https://github.com/user-attachments/assets/0d4f84d1-3a2c-49bd-b478-0f6af4fcc5b3)
 
-#### Dane wejściowe modelu LR dla zużycia aktywnego
+#### Heat mapa zużycia energii aktywnej
+![image](https://github.com/user-attachments/assets/d4e6d31f-018e-4baa-84b7-66cbfaf5dda4)
+
+
+#### Model LR dla zużycia aktywnego
 * **Trend czasowy** – kolejny numer dnia (`t_idx`), łapie długofalowe zmiany.  
 * **Sezon roczny** – `sin(dzień-roku)` i `cos(dzień-roku)` rozróżniają lato / zimę.  
 * **Dzień tygodnia** – siedem flag (pn…nd) wskazujących konkretny dzień.
