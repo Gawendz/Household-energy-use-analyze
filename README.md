@@ -1,9 +1,26 @@
-sub_metering_1: podlicznik energii nr 1 (w watogodzinach energii czynnej), dla:
--Kuchnia: zmywarka, piekarnik, kuchenka mikrofalowa.
-sub_metering_2: podlicznik energii nr 2 (w watogodzinach energii czynnej), dla: 
--Pralnia: pralka, suszarka bębnowa, lodówka, oświetlenie.
-9. sub_metering_3: podlicznik energii nr 3 (w watogodzinach energii czynnej), dla:
--Podgrzewacz wody i klimatyzator.
+
+* **Źródło:** UCI – *Individual Household Electric Power Consumption*.  
+* **Zakres czasu:** **16 XII 2006 – 26 XI 2010** (47 miesięcy).  
+* **Częstotliwość próbkowania:** **co 1 minutę** → 2 075 259 obserwacji.  
+* **Lokalizacja instalacji:** dom jednorodzinny w Sceaux, ok. 7 km od Paryża (Francja).
+
+| Kolumna                | Typ          | Opis                                                               |
+|------------------------|--------------|--------------------------------------------------------------------|
+| `Date`                 | kategoria    | data w formacie **dd/mm/yyyy**                                     |
+| `Time`                 | kategoria    | czas w formacie **HH:MM:SS**                                       |
+| `Global_active_power`  | ciągła       | moc czynna *uśredniona minutowo* \[kW\]                            |
+| `Global_reactive_power`| ciągła       | moc bierna *uśredniona minutowo* \[kVAR\]                          |
+| `Voltage`              | ciągła       | napięcie sieci *uśrednione minutowo* \[V\]                         |
+| `Global_intensity`     | ciągła       | prąd (natężenie) *uśredniony minutowo* \[A\]                       |
+| `Sub_metering_1`       | ciągła       | energia w kuchni (zmywarka, piekarnik, mikrofalówka) \[Wh/min\]    |
+| `Sub_metering_2`       | ciągła       | energia w pralni (pralka, suszarka, lodówka, oświetlenie) \[Wh/min\]|
+| `Sub_metering_3`       | ciągła       | energia bojlera i klimatyzacji \[Wh/min\]   
+
+
+
+
+#### Wykresy trendów, średnich i wartości szczytowych:
+![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
 ### Stabilność i wahania pomiarów minutowych
 
@@ -22,10 +39,6 @@ Wnioski:
 * Najbardziej odstające są pomiary Sub_metering 1 / 2 (CV > 4), co potwierdza, że podłączone urządzenia włączają się punktowo (np. zmywarka, pralka).  
 * Całkowita moc czynna ma CV ≈ 1 – umiarkowana zmienność wpisująca się w cykl dobowy.  
 
-
-
-#### Wykresy trendów, średnich i wartości szczytowych:
-![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
 #### Znormalizowane rozkłady godzinowe metryk
 Aby porównać różne metryki na jednej skali, każdą z nich znormalizowano metodą min–max:
