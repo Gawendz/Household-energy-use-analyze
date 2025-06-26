@@ -69,7 +69,9 @@ def plot_single(pdf, alias, title, unit, divisor):
     plt.close()
     print(f"[Viz] Zapisano {out}")
 
+
 def plot_overview(pdf):
+    import math
     n    = len(METRICS)
     cols = 2
     rows = math.ceil(n/cols)
@@ -77,6 +79,7 @@ def plot_overview(pdf):
     axes = axes.flatten()
 
     fig.suptitle("Przegląd dziennych metryk zużycia i parametrów", fontsize=16)
+
     for ax, (alias, _, title, unit, divisor) in zip(axes, METRICS):
         series    = pdf[alias] / divisor
         mean_val  = series.mean()
@@ -89,52 +92,26 @@ def plot_overview(pdf):
                    label=f"Średnia: {mean_val:.2f} {unit}")
         ax.scatter(peak_date, peak_val, color='red', s=20,
                    label=f"Szczyt: {peak_val:.2f} {unit}\n{peak_date.date()}")
-        ax.set_title(f"{title} [{unit}]")
-        ax.tick_params(axis='x', rotation=30)
-        ax.legend(fontsize='small')
 
+        ax.set_title(f"{title} [{unit}]", fontsize=12)
+        ax.set_xlabel("")  # usuń etykietę osi X
+        ax.set_ylabel("")  # usuń etykietę osi Y
+        ax.tick_params(axis='x', rotation=30)
+        ax.legend(fontsize='small', loc="upper left")
+
+    # Usuń puste osie, jeśli METRICS ma nieparzystą liczbę
     for empty in axes[n:]:
         fig.delaxes(empty)
 
     plt.tight_layout()
-    fig.subplots_adjust(top=0.93)  # odsunięcie od suptitle
+    fig.subplots_adjust(top=0.92)  # odsunięcie od suptitle
     out = "overview_metrics.png"
     fig.savefig(out)
     plt.close()
     print(f"[Viz] Zapisano {out}")
-def plot_overview(pdf):
-    n    = len(METRICS)
-    cols = 2
-    rows = math.ceil(n/cols)
-    fig, axes = plt.subplots(rows, cols, figsize=(14, rows*3), sharex=True)
-    axes = axes.flatten()
 
-    fig.suptitle("Przegląd dziennych metryk zużycia i parametrów", fontsize=16)
-    for ax, (alias, _, title, unit, divisor) in zip(axes, METRICS):
-        series    = pdf[alias] / divisor
-        mean_val  = series.mean()
-        peak_idx  = series.idxmax()
-        peak_date = pdf.loc[peak_idx, 'date']
-        peak_val  = series.max()
 
-        ax.plot(pdf['date'], series, label=title)
-        ax.axhline(mean_val, color='grey', linestyle='--',
-                   label=f"Średnia: {mean_val:.2f} {unit}")
-        ax.scatter(peak_date, peak_val, color='red', s=20,
-                   label=f"Szczyt: {peak_val:.2f} {unit}\n{peak_date.date()}")
-        ax.set_title(f"{title} [{unit}]")
-        ax.tick_params(axis='x', rotation=30)
-        ax.legend(fontsize='small')
 
-    for empty in axes[n:]:
-        fig.delaxes(empty)
-
-    plt.tight_layout()
-    fig.subplots_adjust(top=0.93)  # odsunięcie od suptitle
-    out = "overview_metrics.png"
-    fig.savefig(out)
-    plt.close()
-    print(f"[Viz] Zapisano {out}")
 
 def main():
     spark    = create_spark()
