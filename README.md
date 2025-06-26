@@ -7,3 +7,20 @@ sub_metering_2: podlicznik energii nr 2 (w watogodzinach energii czynnej), dla:
 
 Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
+
+
+Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali, każdą z nich znormalizowano metodą _min–max_:
+
+\[
+\text{normalized\_value}_{h} 
+= \frac{\text{value}_{h} - \min_{h'}(\text{value}_{h'})}
+       {\max_{h'}(\text{value}_{h'}) - \min_{h'}(\text{value}_{h'})}
+\]
+
+gdzie:
+- \(h\) to godzina dnia (0–23),
+- \(\text{value}_{h}\) to agregowana wartość danej metryki w godzinie \(h\),
+- min/max to odpowiednio najmniejsza i największa wartość tej metryki wśród wszystkich godzin.
+
+Wspólny wykres pozwala zobaczyć o której godzinie osiąga się szczyt danej miary, porównać kształty i rozkłady godzinowe różnych wielkości niezależnie od ich jednostek.
+![hourly_combined_normalized](https://github.com/user-attachments/assets/a2720477-d36e-43ba-ad53-0a4839567e13)
