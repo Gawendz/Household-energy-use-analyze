@@ -59,6 +59,7 @@ Efekt:
 |---------|---------|
 | RMSE | **7.35 kWh** |
 | R²   | **0.409** |
+
 ![image](https://github.com/user-attachments/assets/73da5c50-e026-45dc-a013-593b352df5a4)
 
 
