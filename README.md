@@ -36,3 +36,25 @@ Wartości energii zostały przeliczone na Wh lub kWh, a napięcie i natężenie
 pokazane jako średnia arytmetyczna. Dzięki temu łatwo widać,
 który dzień tygodnia generuje najwyższe (lub najniższe) obciążenie.
 ![image](https://github.com/user-attachments/assets/0d4f84d1-3a2c-49bd-b478-0f6af4fcc5b3)
+
+
+| Rola w modelu | Kolumna/cecha | Jak powstała | Typ | Liczba wariantów |
+|---------------|---------------|--------------|-----|------------------|
+| **Y** – etykieta | `kwh` | suma `Global_active_power` z całego dnia ÷ 60 → [daily kWh] | Double | — |
+| **Trend** | `t_idx` | rosnący indeks dnia (`monotonically_increasing_id`) | Double | unikat dla każdego dnia |
+| **Sezon roczny** | `sin_doy` | `sin(2π · DOY / 365)` | Double | ciągłe |
+| | `cos_doy` | `cos(2π · DOY / 365)` | Double | — |
+| **Dzień tygodnia (One-Hot)** | `dow_0 … dow_6` | `dow = dayofweek(date)-1` → 7 kolumn 0/1 | Double | 7 |
+
+* **Próbka**: grudzień 2006 → nov 2010, 1 276 dni  
+* **Wektor cech**: 1 (trend) + 2 (sezon) + 7 (day-of-week) = 10 wymiarów  
+* **Train / test**: losowo 80 % / 20 %  
+* **Model**: `LinearRegression` (Spark MLlib, `maxIter=50`, `regParam=0`)
+
+\
+Efekt:
+
+| Metryka | Wartość |
+|---------|---------|
+| RMSE | **7.35 kWh** |
+| R²   | **0.409** |
