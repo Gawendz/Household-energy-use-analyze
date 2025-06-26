@@ -16,12 +16,13 @@
 | `Sub_metering_2`       | ciągła       | energia w pralni (pralka, suszarka, lodówka, oświetlenie) \[Wh/min\]|
 | `Sub_metering_3`       | ciągła       | energia bojlera i klimatyzacji \[Wh/min\]   
 
-#### Procentowy udział energii według stref:
-![image](https://github.com/user-attachments/assets/9757d807-a813-464f-b1ba-2fd67a3659c0)
-Pozostałe = Energia czynna - Sub_metering_1 -Sub_metering_2 - Sub_metering_3
 
 #### Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
+
+#### Procentowy udział energii według stref:
+![image](https://github.com/user-attachments/assets/9757d807-a813-464f-b1ba-2fd67a3659c0)
+Pozostałe = Energia czynna - Sub_metering_1 -Sub_metering_2 - Sub_metering_3
 
 ### Stabilność i wahania pomiarów minutowych
 
