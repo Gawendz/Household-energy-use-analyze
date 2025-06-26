@@ -5,6 +5,25 @@ sub_metering_2: podlicznik energii nr 2 (w watogodzinach energii czynnej), dla:
 9. sub_metering_3: podlicznik energii nr 3 (w watogodzinach energii czynnej), dla:
 -Podgrzewacz wody i klimatyzator.
 
+### Stabilność i wahania pomiarów minutowych
+
+| Metryka                | Średnia (µ) | Wariancja (σ²) | CV = σ / µ |
+|------------------------|------------:|---------------:|-----------:|
+| Global_active_power    | **1.092** kW | 1.118 | 0.969 |
+| Global_reactive_power  | 0.124 kVAR | 0.013 | 0.911 |
+| Voltage                | 240.840 V | 10.498 | 0.013 |
+| Global_intensity       | 4.628 A | 19.753 | 0.960 |
+| Sub_metering_1         | 1.122 Wh | 37.860 | **5.484** |
+| Sub_metering_2         | 1.299 Wh | 33.896 | 4.484 |
+| Sub_metering_3         | 6.458 Wh | 71.186 | 1.306 |
+
+Wnioski:  
+* Napięcie ma **najmniejsze CV (0.013)** – praktycznie stałe.  
+* Najbardziej odstające są pomiary Sub_metering 1 / 2 (CV > 4), co potwierdza, że podłączone urządzenia włączają się punktowo (np. zmywarka, pralka).  
+* Całkowita moc czynna ma CV ≈ 1 – umiarkowana zmienność wpisująca się w cykl dobowy.  
+
+
+
 #### Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
