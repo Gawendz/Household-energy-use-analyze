@@ -9,13 +9,11 @@ Wykresy trendów, średnich i wartości szczytowych:
 ![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
 
 
-Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali, każdą z nich znormalizowano metodą _min–max_:
+Aby porównać różne metryki (moc czynna, moc bierna, sub-meteringi, napięcie, natężenie) na jednej skali, każdą z nich znormalizowano metodą *min–max*:
 
-\[
-\text{normalized\_value}_{h} 
-= \frac{\text{value}_{h} - \min_{h'}(\text{value}_{h'})}
-       {\max_{h'}(\text{value}_{h'}) - \min_{h'}(\text{value}_{h'})}
-\]
+```text
+normalized_value_h = (value_h - min_{h'} value_{h'}) 
+                     / (max_{h'} value_{h'} - min_{h'} value_{h'})
 
 gdzie:
 - \(h\) to godzina dnia (0–23),
