@@ -18,10 +18,10 @@
 
 
 #### Wykresy trendów, średnich i wartości szczytowych:
-![overview_metrics](https://github.com/user-attachments/assets/449340ca-5019-4f5b-a705-218397cae420)
+![overview_metrics](images/household_power_overview_metrics.png)
 
 #### Procentowy udział energii według stref:
-![image](https://github.com/user-attachments/assets/9757d807-a813-464f-b1ba-2fd67a3659c0)
+![energy_shares](images/household_power_energy_shares.png)
 Pozostałe = Energia czynna - Sub_metering_1 -Sub_metering_2 - Sub_metering_3
 
 ### Stabilność i wahania pomiarów minutowych
@@ -57,7 +57,7 @@ gdzie:
 - <code>min<sub>h′</sub>(…)</code> i <code>max<sub>h′</sub>(…)</code> to odpowiednio najniższa i najwyższa wartość tej metryki spośród wszystkich godzin.
 
 Wspólny wykres pozwala zobaczyć o której godzinie osiąga się szczyt danej miary, porównać kształty i rozkłady godzinowe różnych wielkości niezależnie od ich jednostek.
-![image](https://github.com/user-attachments/assets/c3140c43-6b97-4433-98cb-bd592ec97a12)
+![hourly_normalized](images/household_power_hourly_normalized.png)
 
 
 #### Wykresy zużyć tygodniowych
@@ -70,10 +70,10 @@ Poniższy wykres grupuje dane według dni tygodnia (pon.–niedz.):
 Wartości energii zostały przeliczone na Wh lub kWh, a napięcie i natężenie
 pokazane jako średnia arytmetyczna. Dzięki temu łatwo widać,
 który dzień tygodnia generuje najwyższe (lub najniższe) obciążenie.
-![image](https://github.com/user-attachments/assets/0d4f84d1-3a2c-49bd-b478-0f6af4fcc5b3)
+![weekly_usage](images/household_power_weekly_usage.png)
 
 #### Heat mapa zużycia energii aktywnej
-![image](https://github.com/user-attachments/assets/d4e6d31f-018e-4baa-84b7-66cbfaf5dda4)
+![heatmap](images/household_power_heatmap_active_power.png)
 
 
 #### Model LR dla zużycia aktywnego
@@ -99,6 +99,6 @@ Efekt:
 | RMSE | **7.35 kWh** |
 | R²   | **0.409** |
 
-![image](https://github.com/user-attachments/assets/73da5c50-e026-45dc-a013-593b352df5a4)
+![lr_results](images/household_power_lr_results.png)
 
 
